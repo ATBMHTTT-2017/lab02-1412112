@@ -1,5 +1,3 @@
-/* connect as SYSDBA */
-
 -- Tao tai khoan cho Giam doc
 create user NV000 identified by 000;
 
@@ -125,3 +123,6 @@ grant create session to TruongChiNhanh;
 grant create session to TruongPhong;
 grant create session to TruongDuAn;
 grant create session to NhanVien;
+
+-- Cap quyen thuc thi procedure xemLuong cho cac role
+grant execute on xemLuong to GiamDoc, TruongChiNhanh, TruongPhong, TruongDuAn, NhanVien;

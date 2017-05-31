@@ -33,6 +33,7 @@ begin
        end;
 end themNhanVien;
 
+set serveroutput on
 create or procedure xemLuong
 as
 begin

@@ -1,5 +1,3 @@
-/* connect as SYSDBA */
-
 /* Script tao bang */
 -- Chi Nhanh
 create table ChiNhanh
@@ -22,13 +20,14 @@ create table ChiTieu
 create table NhanVien
 (
        maNV varchar2(10) not null,
-       hoTen varchar(20) not null,
+       hoTen varchar2(20) not null,
        diaChi varchar2(50) not null,
        dienThoai varchar2(11) not null,
        email varchar2(20) not null,
        maPhong varchar2(10),
        chiNhanh varchar2(10),
-       luong number(10) not null,
+       luong raw(2000) not null,
+       keyLuong raw(32) not null,
        constraint PK_NhanVien primary key (maNV)
 );
 -- Phan Cong
@@ -95,47 +94,47 @@ insert into PhongBan values ('PB-CT-NS', 'Phong Nhan Su', null, null, null, 'CN-
 insert into PhongBan values ('PB-CT-KT', 'Phong Ke Toan', null, null, null, 'CN-CT');
 insert into PhongBan values ('PB-CT-KH', 'Phong Ke Hoach', null, null, null, 'CN-CT');
 
-insert into NhanVien values ('NV000', 'Tran Van Doc', '123 Ly Thai To', '084088888', 'giamdoc@gmail.com', 'PB-HCM-NS', 'CN-HCM', 15000000);
-insert into NhanVien values ('NV101', 'Tran Van 101', '256 Huynh Thuc Khang', '0901236732', 'nv101@gmail.com', 'PB-HCM-NS', 'CN-HCM', 8000000);
-insert into NhanVien values ('NV102', 'Nguyen Van 102', '223 Luong Dinh Cua', '0902534731', 'nv102@gmail.com', 'PB-HCM-NS', 'CN-HCM', 8000000);
-insert into NhanVien values ('NV103', 'Nguyen Van 103', '22 Hoang Hoa Tham', '0902523731', 'nv103@gmail.com', 'PB-HCM-NS', 'CN-HCM', 8000000);
-insert into NhanVien values ('NV104', 'Hoang Thi 104', '44 Ly Thai To', '0942347613', 'nv104@gmail.com', 'PB-HCM-KT', 'CN-HCM', 7000000);
-insert into NhanVien values ('NV105', 'Ly Thi 105', '325 Nguyen Van Cu', '01672345344', 'nv105@gmail.com', 'PB-HCM-KT', 'CN-HCM', 7000000);
-insert into NhanVien values ('NV106', 'Tra Van 106', '33 Ly Thuong Kiet', '0945692415', 'nv106@gmail.com', 'PB-HCM-KH', 'CN-HCM', 9000000);
-insert into NhanVien values ('NV107', 'Hua Thi 107', 'F34 Mac Dinh Chi', '01681231412', 'nv107@gmail.com', 'PB-HCM-KH', 'CN-HCM', 9000000);
-insert into NhanVien values ('NV108', 'Hua Thi 108', '32 Truong Quoc', '01681211112', 'nv108@gmail.com', 'PB-HCM-KH', 'CN-HCM', 9000000);
-insert into NhanVien values ('NV201', 'Tran Van 201', '33 Hang Vong', '0914567539', 'nv201@gmail.com', 'PB-HN-NS', 'CN-HN', 8000000);
-insert into NhanVien values ('NV202', 'Nguyen Van 202', 'E21 Hang Com', '01647891456', 'nv202@gmail.com', 'PB-HN-NS', 'CN-HN', 8000000);
-insert into NhanVien values ('NV203', 'Nguyen Van 203', '22 Hang Vong', '01284891456', 'nv203@gmail.com', 'PB-HN-NS', 'CN-HN', 8000000);
-insert into NhanVien values ('NV204', 'Hoang Thi 204', '44 Hang Ma', '01671112456', 'nv204@gmail.com', 'PB-HN-KT', 'CN-HN', 7000000);
-insert into NhanVien values ('NV205', 'Ly Thi 205', 'F67 Hang La', '0914256325', 'nv205@gmail.com', 'PB-HN-KT', 'CN-HN', 7000000);
-insert into NhanVien values ('NV206', 'Tra Van 206', 'S19 Pho Lang Thon', '0904444456', 'nv206@gmail.com', 'PB-HN-KH', 'CN-HN', 9000000);
-insert into NhanVien values ('NV207', 'Hua Thi 207', '672 Hang Xanh', '01688881414', 'nv207@gmail.com', 'PB-HN-KH', 'CN-HN', 9000000);
-insert into NhanVien values ('NV208', 'Hua Thi 208', '44 Pho Co', '01678781414', 'nv208@gmail.com', 'PB-HN-KH', 'CN-HN', 9000000);
-insert into NhanVien values ('NV301', 'Tran Van 301', '272 Tu Quynh', '0901564789', 'nv301@gmail.com', 'PB-DN-NS', 'CN-DN', 8000000);
-insert into NhanVien values ('NV302', 'Nguyen Van 302', '14 Xa Thi Man', '01643589191', 'nv302@gmail.com', 'PB-DN-NS', 'CN-DN', 8000000);
-insert into NhanVien values ('NV303', 'Nguyen Van 303', '22 Ly Lien Kiet', '01678949191', 'nv303@gmail.com', 'PB-DN-NS', 'CN-DN', 8000000);
-insert into NhanVien values ('NV304', 'Hoang Thi 304', '345 Cau The Huc', '01649789562', 'nv304@gmail.com', 'PB-DN-KT', 'CN-DN', 7000000);
-insert into NhanVien values ('NV305', 'Ly Thi 305', '167 Hue Mong Mo', '084088888', 'nv305@gmail.com', 'PB-DN-KT', 'CN-DN', 7000000);
-insert into NhanVien values ('NV306', 'Tra Van 306', '1F1 Cinema Galaxy', '0902311212', 'nv306@gmail.com', 'PB-DN-KH', 'CN-DN', 9000000);
-insert into NhanVien values ('NV307', 'Hua Thi 307', '22 Ga Gion KFC', '01657898520', 'nv307@gmail.com', 'PB-DN-KH', 'CN-DN', 9000000);
-insert into NhanVien values ('NV308', 'Hua Thi 308', '99 Starbucks', '01614258520', 'nv308@gmail.com', 'PB-DN-KH', 'CN-DN', 9000000);
-insert into NhanVien values ('NV401', 'Tran Van 401', '272 Hoang Dieu', '01021234587', 'nv401@gmail.com', 'PB-VT-NS', 'CN-VT', 8000000);
-insert into NhanVien values ('NV402', 'Nguyen Van 402', '14 Hai Ba Trung', '01641241191', 'nv402@gmail.com', 'PB-VT-NS', 'CN-VT', 8000000);
-insert into NhanVien values ('NV403', 'Nguyen Van 403', '14 Ba Trieu', '01640012191', 'nv403@gmail.com', 'PB-VT-NS', 'CN-VT', 8000000);
-insert into NhanVien values ('NV404', 'Hoang Thi 404', '345 Phuoc Lam', '0911111111', 'nv404@gmail.com', 'PB-VT-KT', 'CN-VT', 7000000);
-insert into NhanVien values ('NV405', 'Ly Thi 405', '167 Phuoc Tinh', '9022222222', 'nv405@gmail.com', 'PB-VT-KT', 'CN-VT', 7000000);
-insert into NhanVien values ('NV406', 'Tra Van 406', '1F1 Ngo Quyen', '0933333333', 'nv406@gmail.com', 'PB-VT-KH', 'CN-VT', 9000000);
-insert into NhanVien values ('NV407', 'Hua Thi 407', '22 Ly Thai Dan', '0944444444', 'nv407@gmail.com', 'PB-VT-KH', 'CN-VT', 9000000);
-insert into NhanVien values ('NV408', 'Hua Thi 408', '22 Truong Vo Ky', '0955555555', 'nv408@gmail.com', 'PB-VT-KH', 'CN-VT', 9000000);
-insert into NhanVien values ('NV501', 'Tran Van 501', '272 Can Gio', '01211111111', 'nv501@gmail.com', 'PB-CT-NS', 'CN-CT', 8000000);
-insert into NhanVien values ('NV502', 'Nguyen Van 502', '14 Can Giuoc', '01222222222', 'nv502@gmail.com', 'PB-CT-NS', 'CN-CT', 8000000);
-insert into NhanVien values ('NV503', 'Nguyen Van 503', '14 Can Duoc', '01233333333', 'nv503@gmail.com', 'PB-CT-NS', 'CN-CT', 8000000);
-insert into NhanVien values ('NV504', 'Hoang Thi 504', '345 Can Tien', '01644444444', 'nv504@gmail.com', 'PB-CT-KT', 'CN-CT', 7000000);
-insert into NhanVien values ('NV505', 'Ly Thi 505', '167 Can Tinh', '01255555555', 'nv505@gmail.com', 'PB-CT-KT', 'CN-CT', 7000000);
-insert into NhanVien values ('NV506', 'Tra Van 506', '1F1 Can Nhieu', '01246546546', 'nv506@gmail.com', 'PB-CT-KH', 'CN-CT', 9000000);
-insert into NhanVien values ('NV507', 'Hua Thi 507', '22 Can Gi', '0977777777', 'nv507@gmail.com', 'PB-CT-KH', 'CN-CT', 9000000);
-insert into NhanVien values ('NV508', 'Hua Thi 508', '22 Can Tinh Duong', '0988888888', 'nv508@gmail.com', 'PB-CT-KH', 'CN-CT', 9000000);
+execute themNhanVien ('NV000', 'Tran Van Doc', '123 Ly Thai To', '084088888', 'giamdoc@gmail.com', 'PB-HCM-NS', 'CN-HCM', 15000000);
+execute themNhanVien ('NV101', 'Tran Van 101', '256 Huynh Thuc Khang', '0901236732', 'nv101@gmail.com', 'PB-HCM-NS', 'CN-HCM', 8000000);
+execute themNhanVien ('NV102', 'Nguyen Van 102', '223 Luong Dinh Cua', '0902534731', 'nv102@gmail.com', 'PB-HCM-NS', 'CN-HCM', 8000000);
+execute themNhanVien ('NV103', 'Nguyen Van 103', '22 Hoang Hoa Tham', '0902523731', 'nv103@gmail.com', 'PB-HCM-NS', 'CN-HCM', 8000000);
+execute themNhanVien ('NV104', 'Hoang Thi 104', '44 Ly Thai To', '0942347613', 'nv104@gmail.com', 'PB-HCM-KT', 'CN-HCM', 7000000);
+execute themNhanVien ('NV105', 'Ly Thi 105', '325 Nguyen Van Cu', '01672345344', 'nv105@gmail.com', 'PB-HCM-KT', 'CN-HCM', 7000000);
+execute themNhanVien ('NV106', 'Tra Van 106', '33 Ly Thuong Kiet', '0945692415', 'nv106@gmail.com', 'PB-HCM-KH', 'CN-HCM', 9000000);
+execute themNhanVien ('NV107', 'Hua Thi 107', 'F34 Mac Dinh Chi', '01681231412', 'nv107@gmail.com', 'PB-HCM-KH', 'CN-HCM', 9000000);
+execute themNhanVien ('NV108', 'Hua Thi 108', '32 Truong Quoc', '01681211112', 'nv108@gmail.com', 'PB-HCM-KH', 'CN-HCM', 9000000);
+execute themNhanVien ('NV201', 'Tran Van 201', '33 Hang Vong', '0914567539', 'nv201@gmail.com', 'PB-HN-NS', 'CN-HN', 8000000);
+execute themNhanVien ('NV202', 'Nguyen Van 202', 'E21 Hang Com', '01647891456', 'nv202@gmail.com', 'PB-HN-NS', 'CN-HN', 8000000);
+execute themNhanVien ('NV203', 'Nguyen Van 203', '22 Hang Vong', '01284891456', 'nv203@gmail.com', 'PB-HN-NS', 'CN-HN', 8000000);
+execute themNhanVien ('NV204', 'Hoang Thi 204', '44 Hang Ma', '01671112456', 'nv204@gmail.com', 'PB-HN-KT', 'CN-HN', 7000000);
+execute themNhanVien ('NV205', 'Ly Thi 205', 'F67 Hang La', '0914256325', 'nv205@gmail.com', 'PB-HN-KT', 'CN-HN', 7000000);
+execute themNhanVien ('NV206', 'Tra Van 206', 'S19 Pho Lang Thon', '0904444456', 'nv206@gmail.com', 'PB-HN-KH', 'CN-HN', 9000000);
+execute themNhanVien ('NV207', 'Hua Thi 207', '672 Hang Xanh', '01688881414', 'nv207@gmail.com', 'PB-HN-KH', 'CN-HN', 9000000);
+execute themNhanVien ('NV208', 'Hua Thi 208', '44 Pho Co', '01678781414', 'nv208@gmail.com', 'PB-HN-KH', 'CN-HN', 9000000);
+execute themNhanVien ('NV301', 'Tran Van 301', '272 Tu Quynh', '0901564789', 'nv301@gmail.com', 'PB-DN-NS', 'CN-DN', 8000000);
+execute themNhanVien ('NV302', 'Nguyen Van 302', '14 Xa Thi Man', '01643589191', 'nv302@gmail.com', 'PB-DN-NS', 'CN-DN', 8000000);
+execute themNhanVien ('NV303', 'Nguyen Van 303', '22 Ly Lien Kiet', '01678949191', 'nv303@gmail.com', 'PB-DN-NS', 'CN-DN', 8000000);
+execute themNhanVien ('NV304', 'Hoang Thi 304', '345 Cau The Huc', '01649789562', 'nv304@gmail.com', 'PB-DN-KT', 'CN-DN', 7000000);
+execute themNhanVien ('NV305', 'Ly Thi 305', '167 Hue Mong Mo', '084088888', 'nv305@gmail.com', 'PB-DN-KT', 'CN-DN', 7000000);
+execute themNhanVien ('NV306', 'Tra Van 306', '1F1 Cinema Galaxy', '0902311212', 'nv306@gmail.com', 'PB-DN-KH', 'CN-DN', 9000000);
+execute themNhanVien ('NV307', 'Hua Thi 307', '22 Ga Gion KFC', '01657898520', 'nv307@gmail.com', 'PB-DN-KH', 'CN-DN', 9000000);
+execute themNhanVien ('NV308', 'Hua Thi 308', '99 Starbucks', '01614258520', 'nv308@gmail.com', 'PB-DN-KH', 'CN-DN', 9000000);
+execute themNhanVien ('NV401', 'Tran Van 401', '272 Hoang Dieu', '01021234587', 'nv401@gmail.com', 'PB-VT-NS', 'CN-VT', 8000000);
+execute themNhanVien ('NV402', 'Nguyen Van 402', '14 Hai Ba Trung', '01641241191', 'nv402@gmail.com', 'PB-VT-NS', 'CN-VT', 8000000);
+execute themNhanVien ('NV403', 'Nguyen Van 403', '14 Ba Trieu', '01640012191', 'nv403@gmail.com', 'PB-VT-NS', 'CN-VT', 8000000);
+execute themNhanVien ('NV404', 'Hoang Thi 404', '345 Phuoc Lam', '0911111111', 'nv404@gmail.com', 'PB-VT-KT', 'CN-VT', 7000000);
+execute themNhanVien ('NV405', 'Ly Thi 405', '167 Phuoc Tinh', '9022222222', 'nv405@gmail.com', 'PB-VT-KT', 'CN-VT', 7000000);
+execute themNhanVien ('NV406', 'Tra Van 406', '1F1 Ngo Quyen', '0933333333', 'nv406@gmail.com', 'PB-VT-KH', 'CN-VT', 9000000);
+execute themNhanVien ('NV407', 'Hua Thi 407', '22 Ly Thai Dan', '0944444444', 'nv407@gmail.com', 'PB-VT-KH', 'CN-VT', 9000000);
+execute themNhanVien ('NV408', 'Hua Thi 408', '22 Truong Vo Ky', '0955555555', 'nv408@gmail.com', 'PB-VT-KH', 'CN-VT', 9000000);
+execute themNhanVien ('NV501', 'Tran Van 501', '272 Can Gio', '01211111111', 'nv501@gmail.com', 'PB-CT-NS', 'CN-CT', 8000000);
+execute themNhanVien ('NV502', 'Nguyen Van 502', '14 Can Giuoc', '01222222222', 'nv502@gmail.com', 'PB-CT-NS', 'CN-CT', 8000000);
+execute themNhanVien ('NV503', 'Nguyen Van 503', '14 Can Duoc', '01233333333', 'nv503@gmail.com', 'PB-CT-NS', 'CN-CT', 8000000);
+execute themNhanVien ('NV504', 'Hoang Thi 504', '345 Can Tien', '01644444444', 'nv504@gmail.com', 'PB-CT-KT', 'CN-CT', 7000000);
+execute themNhanVien ('NV505', 'Ly Thi 505', '167 Can Tinh', '01255555555', 'nv505@gmail.com', 'PB-CT-KT', 'CN-CT', 7000000);
+execute themNhanVien ('NV506', 'Tra Van 506', '1F1 Can Nhieu', '01246546546', 'nv506@gmail.com', 'PB-CT-KH', 'CN-CT', 9000000);
+execute themNhanVien ('NV507', 'Hua Thi 507', '22 Can Gi', '0977777777', 'nv507@gmail.com', 'PB-CT-KH', 'CN-CT', 9000000);
+execute themNhanVien ('NV508', 'Hua Thi 508', '22 Can Tinh Duong', '0988888888', 'nv508@gmail.com', 'PB-CT-KH', 'CN-CT', 9000000);
 
 update ChiNhanh set truongChiNhanh = 'NV101' where maCN = 'CN-HCM';
 update ChiNhanh set truongChiNhanh = 'NV201' where maCN = 'CN-HN';

@@ -1,0 +1,127 @@
+/* connect as SYSDBA */
+
+-- Tao tai khoan cho Giam doc
+create user NV000 identified by 000;
+
+-- Tao tai khoan cho cac Truong chi nhanh
+create user NV101 identified by 101;
+create user NV201 identified by 201;
+create user NV301 identified by 301;
+create user NV401 identified by 401;
+create user NV501 identified by 501;
+
+-- Tao tai khoan cho cac Truong phong
+create user NV102 identified by 102;
+create user NV104 identified by 104;
+create user NV106 identified by 106;
+create user NV202 identified by 202;
+create user NV204 identified by 204;
+create user NV206 identified by 206;
+create user NV302 identified by 302;
+create user NV304 identified by 304;
+create user NV306 identified by 306;
+create user NV402 identified by 402;
+create user NV404 identified by 404;
+create user NV406 identified by 406;
+create user NV502 identified by 502;
+create user NV504 identified by 504;
+create user NV506 identified by 506;
+
+-- Tao tai khoan cho cac Truong du an
+create user NV107 identified by 107;
+create user NV207 identified by 207;
+create user NV307 identified by 307;
+create user NV407 identified by 407;
+create user NV507 identified by 507;
+
+-- Tao tai khoan cho cac Nhan vien thuong
+create user NV103 identified by 103;
+create user NV105 identified by 105;
+create user NV108 identified by 108;
+create user NV203 identified by 203;
+create user NV205 identified by 205;
+create user NV208 identified by 208;
+create user NV303 identified by 303;
+create user NV305 identified by 305;
+create user NV308 identified by 308;
+create user NV403 identified by 403;
+create user NV405 identified by 405;
+create user NV408 identified by 408;
+create user NV503 identified by 503;
+create user NV505 identified by 505;
+create user NV508 identified by 508;
+
+/* connect as SYSDBA */
+
+-- Tao role GiamDoc
+create role GiamDoc;
+
+-- Tao role TruongChiNhanh
+create role TruongChiNhanh;
+
+-- Tao role TruongPhong
+create role TruongPhong;
+
+-- Tao role TruongDuAn
+create role TruongDuAn;
+
+-- Tao role NhanVien
+create role NhanVien;
+
+-- Them nhan vien giu vai tro Giam doc vao role GiamDoc
+grant GiamDoc to NV000;
+
+-- Them cac nhan vien giu vai tro Truong chi nhanh vao role TruongChiNhanh
+grant TruongChiNhanh to NV101;
+grant TruongChiNhanh to NV201;
+grant TruongChiNhanh to NV301;
+grant TruongChiNhanh to NV401;
+grant TruongChiNhanh to NV501;
+
+-- Them cac nhan vien giu vai tro Truong phong vao role TruongPhong
+grant TruongPhong to NV102;
+grant TruongPhong to NV104;
+grant TruongPhong to NV106;
+grant TruongPhong to NV202;
+grant TruongPhong to NV204;
+grant TruongPhong to NV206;
+grant TruongPhong to NV302;
+grant TruongPhong to NV304;
+grant TruongPhong to NV306;
+grant TruongPhong to NV402;
+grant TruongPhong to NV404;
+grant TruongPhong to NV406;
+grant TruongPhong to NV502;
+grant TruongPhong to NV504;
+grant TruongPhong to NV506;
+
+-- Them cac nhan vien giu vai tro Truong du an vao role TruongDuAn
+grant TruongDuAn to NV107;
+grant TruongDuAn to NV207;
+grant TruongDuAn to NV307;
+grant TruongDuAn to NV407;
+grant TruongDuAn to NV507;
+
+-- Them cac nhan vien thuong vao role NhanVien
+grant NhanVien to NV103;
+grant NhanVien to NV105;
+grant NhanVien to NV108;
+grant NhanVien to NV203;
+grant NhanVien to NV205;
+grant NhanVien to NV208;
+grant NhanVien to NV303;
+grant NhanVien to NV305;
+grant NhanVien to NV308;
+grant NhanVien to NV403;
+grant NhanVien to NV405;
+grant NhanVien to NV408;
+grant NhanVien to NV503;
+grant NhanVien to NV505;
+grant NhanVien to NV508;
+
+-- Cap quyen tao phien lam viec cho cac role
+grant create session to GiamDoc;
+grant create session to TruongChiNhanh;
+grant create session to TruongPhong;
+grant create session to TruongDuAn;
+grant create session to NhanVien;
